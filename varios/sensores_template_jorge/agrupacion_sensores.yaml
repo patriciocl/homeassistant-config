@@ -1,0 +1,97 @@
+- platform: template
+  sensors:
+    ventanas_abiertas:
+      friendly_name: VENTANAS ABIERTAS
+      icon_template: > 
+        {% if states('sensor.ventanas_abiertas') %}mdi:alert{% else %}mdi:approval{% endif %}
+      value_template: >
+        {% set ventanas = [ states.binary_sensor.ventana_patio, states.binary_sensor.ventana_izquierda, states.binary_sensor.ventana_derecha, states.binary_sensor.ventana_matrimonio, states.binary_sensor.ventana_noa, states.binary_sensor.ventana_oficina ] %}
+        {%- for state in ventanas if (('window' in state.attributes.device_class)) -%}
+          {%- set opening = state.state -%}
+          {%- if opening == 'off' -%}
+            {%- set state = 100 -%}
+          {%- endif -%}       
+          {%- if opening == 'on' %}
+            {{state.attributes.friendly_name}}, 
+          {%- endif -%}
+        {%- endfor -%}
+    ventanas_status:
+      friendly_name: VENTANAS STATUS
+      icon_template: >
+        {% if states('sensor.ventanas_abiertas') %}mdi:window-open-variant{% else %}mdi:window-closed-variant{% endif %}
+      value_template: >
+        {% if states('sensor.ventanas_abiertas') %}{{states('sensor.ventanas_abiertas')}}{% else %}NINGUNA VENTANA ABIERTA{% endif %}
+
+
+- platform: template
+  sensors:
+    volumetricos_activos:
+      friendly_name: VOLUMÉTRICOS ACTIVOS
+      icon_template: > 
+        {% if states('sensor.volumetricos_activos') %}mdi:alert{% else %}mdi:approval{% endif %}
+      value_template: >
+        {% set volumetricos = [ states.binary_sensor.vol_entrada, states.binary_sensor.vol_patio, states.binary_sensor.vol_pasillo ] %}
+        {%- for state in volumetricos if (('motion' in state.attributes.device_class)) -%}
+          {%- set opening = state.state -%}
+          {%- if opening == 'off' -%}
+            {%- set state = 100 -%}
+          {%- endif -%}       
+          {%- if opening == 'on' %}
+            {{state.attributes.friendly_name}}, 
+          {%- endif -%}
+        {%- endfor -%}
+    volumetricos_status:
+      friendly_name: VOLUMÉTRICOS STATUS
+      icon_template: >
+        {% if states('sensor.volumetricos_activos') %}mdi:motion-sensor{% else %}mdi:motion-sensor-off{% endif %}
+      value_template: >
+        {% if states('sensor.volumetricos_activos') %}{{states('sensor.volumetricos_activos')}}{% else %}NINGÚN VOLUMÉTRICO ACTIVO{% endif %}
+
+
+- platform: template
+  sensors:
+    puertas_abiertas:
+      friendly_name: PUERTAS ABIERTAS
+      icon_template: > 
+        {% if states('sensor.puertas_abiertas') %}mdi:alert{% else %}mdi:approval{% endif %}
+      value_template: >
+        {% set puertas = [ states.binary_sensor.puerta_entrada, states.binary_sensor.puerta_patio, states.binary_sensor.puerta_pasillo ] %}
+        {%- for state in puertas if (('door' in state.attributes.device_class)) -%}
+          {%- set opening = state.state -%}
+          {%- if opening == 'off' -%}
+            {%- set state = 100 -%}
+          {%- endif -%}       
+          {%- if opening == 'on' %}
+            {{state.attributes.friendly_name}}, 
+          {%- endif -%}
+        {%- endfor -%}
+    puertas_status:
+      friendly_name: PUERTAS STATUS
+      icon_template: >
+        {% if states('sensor.puertas_abiertas') %}mdi:door-open{% else %}mdi:door-closed{% endif %}
+      value_template: >
+        {% if states('sensor.puertas_abiertas') %}{{states('sensor.puertas_abiertas')}}{% else %}NINGUNA PUERTA ACTIVA{% endif %}
+
+- platform: template
+  sensors:
+    sensores_activos:
+      friendly_name: SENSORES ACTIVOS
+      icon_template: >
+        {% if states('sensor.sensores_activos') %}mdi:alert{% else %}mdi:approval{% endif %}
+      value_template: >
+        {% set sensores = [ states.binary_sensor.humo_cocina, states.binary_sensor.shelly_flood_694852_flood, states.binary_sensor.lavabo_esther, states.binary_sensor.llave ] %}
+        {%- for state in sensores if (('moisture' in state.attributes.device_class) or ('smoke' in state.attributes.device_class) or ('opening' in state.attributes.device_class)) -%}
+          {%- set opening = state.state -%}
+          {%- if opening == 'off' -%}
+            {%- set state = 100 -%}
+          {%- endif -%}       
+          {%- if opening == 'on' %}
+            {{state.attributes.friendly_name}}, 
+          {%- endif -%}
+        {%- endfor -%}
+    sensores_status:
+      friendly_name: SENSORES STATUS
+      icon_template: >
+        {% if states('sensor.sensores_activos') %}mdi:leak{% else %}mdi:leak-off{% endif %}
+      value_template: >
+        {% if states('sensor.sensores_activos') %}{{states('sensor.sensores_activos')}}{% else %}NINGÚN SENSOR ACTIVO{% endif %}

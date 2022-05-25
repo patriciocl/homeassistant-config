@@ -1,0 +1,45 @@
+type: vertical-stack
+cards:
+  - type: custom:mushroom-title-card
+    title: 'ELEMENTOS ACTIVOS:'
+    title: ''
+  - type: vertical-stack
+    cards:
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: entity
+            entity: sensor.puertas_status
+            icon_color: blue
+            tap_action:
+              action: more-info
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: entity
+            entity: sensor.volumetricos_status
+            icon_color: blue
+            tap_action:
+              action: more-info
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: entity
+            entity: sensor.ventanas_status
+            icon_color: blue
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: entity
+            entity: sensor.sensores_status
+            icon_color: blue
+            tap_action:
+              action: more-info
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
