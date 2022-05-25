@@ -4,7 +4,7 @@
 
 #### Hardware
 
-| Device                                                                                                                                                               |                                                      Home Assistant                                                       | Notes                                                                                          |
+| Device    |                 USO               | COMENTARIO                                                                                          |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------:|------------------------------------------------------------------------------------------------|
-| Thinkpad T420 i3-2350M / 6GB RAM   / 120GB SAMSUNG SSD 830 Series                                               |                             [Homematic](https://www.home-assistant.io/components/homematic/)                              | Used to control all Homematic devices                                                          |
- 
+| Thinkpad T420 i3-2350M / 6GB RAM   / 120GB SAMSUNG SSD 830 Series | Proxmox 7.0.2   | Rescatado de la Basura AC/RA |
+| 
