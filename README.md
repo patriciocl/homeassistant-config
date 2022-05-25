@@ -29,4 +29,14 @@
 | ZIGBEE: Aqara Sensor Temp/HUM | BODEGA | Saber humedad PLA |
 | RF: BOTONERA | Dormitorio Principal | Encendido SONOFF T1 Dormitorio |
 
+#### HARDWARE NO INTEGRADO
+* Robot Aspirador Xiaomi
+* Google home
+* Alexa
+
+#### AUTOMATIZACIONES
+
+* Encendido/Apagado Luz Cocina mediante un grupo de sensores de presencia, al tener un aqara que reporta estado cada 120 Segundos y un sonoff cada 60 segundos, casi no existen falsos positivos
+* Encendido/Apagado Luz Baño
+* Encendico Apagado Luz Bodega
 
