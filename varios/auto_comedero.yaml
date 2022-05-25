@@ -1,0 +1,35 @@
+- id: "COMIDA_LUNA"
+  alias: COMIDA LUNA
+  description: 'Exprende la comida justa a la luna' 
+  trigger: 
+    - platform: state 
+      entity_id: 
+        - input_button.comedero
+  condition: [] 
+  action: 
+    - repeat: 
+        until: 
+          - condition: template 
+            value_template: >- 
+              {{(states("counter.raciones_objetivo")|int) == ( 
+              (states("sensor.total_raciones_comida")|int) + 
+              (states("input_number.raciones_comida")|int) )}} 
+        sequence: 
+          - service: counter.increment 
+            data: {} 
+            target: 
+              entity_id: counter.raciones_objetivo 
+    - service: switch.turn_on 
+      data: {} 
+      target: 
+        entity_id: 
+          - switch.motor_comedero
+    - wait_template: >- 
+        {{states("sensor.total_raciones_comida")== 
+        states("counter.raciones_objetivo") }} 
+      continue_on_timeout: false 
+    - service: switch.turn_off 
+      data: {} 
+      target: 
+        entity_id: 
+          - switch.motor_comedero
