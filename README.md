@@ -40,3 +40,9 @@
 * Encendido/Apagado Luz Baño
 * Encendico Apagado Luz Bodega
 
+###### OZOM
+
+Es una Marca de Dispotivos de Domotica que son vendidos en chile y algunos paises de latino america, algunos de sus dispotivos son soportados ( zigbee ) por smarthings y Zigbee2mqtt y por su puesto por su Ozom Box.
+
+Por Suerte Tengo Muchas dispotivos Ozom.... Luces Gu10 E27 Enchufes / Sensores de Humo / Sensores de CO2
+
