@@ -14,6 +14,8 @@
 | WIFI: SONOFF T1         | Dormitorio Pato | ESPHOME |
 | WIFI: SONOFF T1         | Dormitorio Principal | ESPHOME |
 | WIFI: SONOFF BRIDGE 433 RF | LIVING | TASMOTA |
+| WIFI: Agua PCHAN | LIVING | TUYALOCAL , dispensador de Agua PCHAN |
+| WIFI: Dispensador Comida PCHAN | LIVING | TUYALOCAL |
 | ZIGBEE: OZOM E27 | Cocina | Z2M |
 | ZIGBEE: Aqara Presencia | Cocina | Z2M |
 | ZIGBEE: Sonoff Presencia | Cocina | Z2M |
